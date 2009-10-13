@@ -1,6 +1,7 @@
 #include <gtk/gtk.h>
 #include <hildon/hildon-program.h>
 #include <gconf/gconf-client.h>
+#include <glib/gstdio.h>
 #include <time.h>
 #include <unistd.h>
 #include <pthread.h>
@@ -17,6 +18,13 @@ gboolean timmer_running = FALSE;
 
 GtkWidget *image;
 gchar *image_file =  "/opt/webview/website/Picture.jpg";
+
+gchar *app_dir = "/opt/webview/";
+gchar *web_server_script = "webview.d";
+gchar *web_server_dir = "/opt/webview/website";
+gchar *config_dir = "/opt/webview/config";
+gchar *web_config = "thttpd.conf";
+gchar *web_log_file = "/opt/webview/logs/thttpd_log";
 
 GtkWidget *txtServerPort;
 GtkWidget *txtUpdateInterval;
@@ -41,6 +49,9 @@ static void menu_about_clicked(GtkMenuItem *menuitem, gpointer data);
 void set_open_web_button(GtkWidget *web_link_button);
 void update_image();
 void *count_down_thread();
+gboolean start_webserver();
+gboolean stop_webserver();
+gboolean update_http_config();
 
 const gchar *GC_ROOT =  "/apps/gladetest/";
 void load_settings();
@@ -110,6 +121,17 @@ int main(int argc, char *argv[]) {
 		gtk_widget_destroy (failDialog);
 	}
 
+	if(! start_webserver())
+	{
+		GtkWidget *failDialog = gtk_message_dialog_new(NULL,
+	     		GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR,
+	     		GTK_BUTTONS_OK,
+	     		"Unable to start web server.\nCheck server port is not already in use.\n");
+		gtk_dialog_run (GTK_DIALOG (failDialog));
+		gtk_widget_destroy (failDialog);
+	}
+
+
 	g_object_unref( G_OBJECT( builder ) );
 	gtk_widget_show( window );
 
@@ -123,6 +145,7 @@ int main(int argc, char *argv[]) {
 void
 destroy (GtkWidget *widget, gpointer data)
 {
+	stop_webserver();
 	 end_camera();
      gtk_main_quit ();
 }
@@ -243,8 +266,10 @@ on_btnSave_clicked(GtkWidget *button, gpointer userdata) {
 		return;
 	}
 
+	stop_webserver();
 	save_settings();
 	load_settings();
+	start_webserver();
 	gtk_widget_destroy(button);
 }
 
@@ -392,4 +417,93 @@ void *count_down_thread ()
 
 	return NULL;
 
+}
+
+gboolean
+start_webserver()
+{
+	gchar *arg[3] = {web_server_script, "start", NULL};
+	gboolean retval;
+
+	if(update_http_config() != TRUE)
+		return FALSE;
+
+	retval = g_spawn_sync (app_dir,
+							arg, NULL,
+			                G_SPAWN_STDERR_TO_DEV_NULL,
+			                NULL, NULL, NULL, NULL, NULL, NULL);
+	sleep(1);
+
+	if ( retval != TRUE)
+		return FALSE;
+	else
+		return TRUE;
+
+
+}
+
+gboolean
+stop_webserver()
+{
+
+	gchar *arg[3] = {web_server_script, "stop", NULL};
+	gboolean retval;
+
+	retval = g_spawn_sync (app_dir,
+							arg, NULL,
+			                G_SPAWN_STDERR_TO_DEV_NULL,
+			                NULL, NULL, NULL, NULL, NULL, NULL);
+	sleep(1);
+
+	if ( retval != TRUE)
+		return FALSE;
+	else
+		return TRUE;
+
+}
+
+gboolean
+update_http_config()
+{
+	GString *filename;
+	FILE *out;
+
+	filename = g_string_new(g_build_filename(config_dir, web_config, NULL));
+
+	if (g_file_test (filename->str, G_FILE_TEST_EXISTS))
+	{
+		if(g_unlink(filename->str) != 0)
+		{
+			g_warning("Unable to update web server config file%s\n", filename->str);
+			GtkWidget *failDialog = gtk_message_dialog_new(NULL,
+								GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR,
+								GTK_BUTTONS_OK,
+								"Unable to update web server config file\n");
+			gtk_dialog_run (GTK_DIALOG (failDialog));
+			gtk_widget_destroy (failDialog);
+			return FALSE;
+		}
+	}
+
+	out = g_fopen(filename->str, "w");
+	if (out == NULL)
+	{
+		GtkWidget *failDialog = gtk_message_dialog_new(NULL,
+				     		GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR,
+				     		GTK_BUTTONS_OK,
+				     		"Unable to create web server config file\n");
+		gtk_dialog_run (GTK_DIALOG (failDialog));
+		gtk_widget_destroy (failDialog);
+	    return FALSE;
+	}
+
+	fprintf(out, "dir=%s\n", web_server_dir);
+	fprintf(out, "cgipat=**.cgi\n");
+	fprintf(out, "logfile=%s\n",web_log_file);
+	fprintf(out, "pidfile=/var/run/thttpd.pid\n");
+	fprintf(out, "port=%s\n",server_port);
+
+	fclose(out);
+	sleep(1);
+	return TRUE;
 }
