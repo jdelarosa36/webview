@@ -39,4 +39,19 @@ clean:
 install:
 	@echo You must be root to install
 	mkdir -p $(DESTDIR)/usr/bin
-	install webview $(DESTDIR)/usr/bin
+	install webview $(DESTDIR)/usr/bin/webview
+	install cheetah $(DESTDIR)/usr/bin/cheetah
+	
+	mkdir -p $(DESTDIR)/usr/var/webview/config
+	mkdir -p $(DESTDIR)/usr/var/webview/website
+	chmod 777 $(DESTDIR)/usr/var/webview/website
+	mkdir -p $(DESTDIR)/usr/var/webview/dialogs	
+	mkdir -p $(DESTDIR)/usr/share/applications/hildon
+
+	install config/webview.d $(DESTDIR)/usr/var/webview/config/webview.d
+	install -m 644 website/index.htm $(DESTDIR)/usr/var/webview/website/index.htm
+	install website/missing_image.png $(DESTDIR)/usr/var/webview/website/missing_image.png
+	install -m 766 website/missing_image.png $(DESTDIR)/usr/var/webview/website/Picture.jpg
+	install dialogs/about.xml $(DESTDIR)/usr/var/webview/dialogs/about.xml
+	install dialogs/settings.xml $(DESTDIR)/usr/var/webview/dialogs/settings.xml
+	install debian/webview.desktop $(DESTDIR)/usr/share/applications/hildon/webview.desktop

@@ -1,12 +1,12 @@
 Source: webview
 Section: unknown
 Priority: extra
-Maintainer: darshan@gencarelle.com
+Maintainer: unknown <darshan@gencarelle.com>
 Build-Depends: debhelper (>= 5)
 Standards-Version: 3.7.2
 
 Package: webview
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Webcam application for the Nokia N800
- Webcam application for the Nokia N800
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>

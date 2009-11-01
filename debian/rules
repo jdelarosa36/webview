@@ -70,8 +70,8 @@ binary-arch: build install
 	dh_installchangelogs 
 	dh_installdocs
 	dh_installexamples
-#	dh_install
-#	dh_installmenu
+	dh_install
+	dh_installmenu
 #	dh_installdebconf	
 #	dh_installlogrotate
 #	dh_installemacsen
@@ -85,7 +85,7 @@ binary-arch: build install
 	dh_link
 	dh_strip
 	dh_compress
-	dh_fixperms
+#	dh_fixperms
 #	dh_perl
 #	dh_makeshlibs
 	dh_installdeb

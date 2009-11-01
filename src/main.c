@@ -1,5 +1,6 @@
 #include <gtk/gtk.h>
 #include <hildon/hildon-program.h>
+#include <hildon/hildon-banner.h>
 #include <gconf/gconf-client.h>
 #include <glib/gstdio.h>
 #include <time.h>
@@ -8,27 +9,54 @@
 #include <glib.h>
 #include "camera.h"
 
+/*
+#define DEV 1
+*/
 
 #define STRING_MAX_SIZE 4096
-
-int update_interval = 120;
-gchar *base_url =  "http://localhost:";
-gchar *server_port = "80";
 gboolean timmer_running = FALSE;
-
-GtkWidget *image;
-gchar *image_file =  "/opt/webview/website/Picture.jpg";
-
-gchar *app_dir = "/opt/webview/";
-gchar *web_server_script = "webview.d";
-gchar *web_server_dir = "/opt/webview/website";
-gchar *config_dir = "/opt/webview/config";
-gchar *web_config = "thttpd.conf";
-gchar *web_log_file = "/opt/webview/logs/thttpd_log";
 
 GtkWidget *txtServerPort;
 GtkWidget *txtUpdateInterval;
 GtkWidget *lblUpdate;
+GtkWidget *image;
+
+typedef struct _SettingsData SettingsData;
+struct _SettingsData {
+	int update_interval;
+	gchar *server_port;
+};
+SettingsData *settings;
+
+typedef struct _ConfigData ConfigData;
+struct _ConfigData {
+	gchar *base_url;
+	gchar *image_file;
+	gchar *app_dir;
+	gchar *web_server_script;
+	gchar *web_server_dir;
+	gchar *config_dir;
+	gchar *web_config;
+	gchar *web_log_file;
+	const gchar *GC_ROOT;
+	gchar *settings_dialog;
+	gchar *missing_image_file;
+	gchar *about_dialog;
+};
+ConfigData *config;
+
+
+typedef struct _AppData AppData;
+struct _AppData {
+    HildonProgram *program;
+    HildonWindow *window;
+    GtkWidget *main_toolbar;
+    GtkWidget *image;
+};
+AppData *appdata;
+
+void build_interface();
+static void create_menu();
 
 extern void take_photo();
 extern gboolean start_camera();
@@ -51,68 +79,45 @@ void update_image();
 void *count_down_thread();
 gboolean start_webserver();
 gboolean stop_webserver();
-gboolean update_http_config();
 
-const gchar *GC_ROOT =  "/apps/gladetest/";
 void load_settings();
 void save_settings();
+void initApp();
 
 int main(int argc, char *argv[]) {
+	pthread_t 		thread;
 
-	GtkBuilder *builder;
-	GtkWidget  *window;
-	GError     *error = NULL;
-	pthread_t thread;
-
-    /* init threads */
+	/* init threads */
     g_thread_init (NULL);
     gdk_threads_init ();
     gdk_threads_enter ();
 
-	gtk_init( &argc, &argv );
+    gtk_init(&argc, &argv);
 
-	/*load main dialog */
-	builder = gtk_builder_new();
-	if( ! gtk_builder_add_from_file( builder, "src/dialog.xml", &error ) )
-	{
-		g_warning( "%s", error->message );
-		g_free( error );
-		return( 1 );
-	}
-	window = GTK_WIDGET( gtk_builder_get_object( builder, "window1" ) );
+    initApp();
 
-	gtk_signal_connect (GTK_OBJECT (window), "destroy", GTK_SIGNAL_FUNC (destroy), NULL);
+    appdata->program = HILDON_PROGRAM(hildon_program_get_instance());
+    g_set_application_name("Webview");
 
-	GtkWidget  *btnStart = GTK_WIDGET(gtk_builder_get_object (builder, "btnStart"));
-    g_signal_connect (G_OBJECT (btnStart), "clicked", G_CALLBACK (start_button_clicked), NULL);
+    appdata->window = HILDON_WINDOW(hildon_window_new());
+    hildon_program_add_window(appdata->program, appdata->window);
 
-    GtkWidget  *btnStop = GTK_WIDGET(gtk_builder_get_object (builder, "btnStop"));
-    g_signal_connect (G_OBJECT(btnStop), "clicked", G_CALLBACK (stop_button_clicked), NULL);
 
-	GtkWidget *btnRefresh = GTK_WIDGET(gtk_builder_get_object (builder, "btnRefresh"));
-    g_signal_connect (G_OBJECT (btnRefresh), "clicked", G_CALLBACK (refresh_button_clicked), NULL);
+    create_menu(appdata->window);
+    build_interface(appdata->window);
 
-    GtkWidget *lbOpenWebPage = GTK_WIDGET(gtk_builder_get_object (builder, "lbOpenWebPage"));
-    set_open_web_button(lbOpenWebPage);
+    /* Connect signal to X in the upper corner */
+    g_signal_connect(G_OBJECT(appdata->window), "delete_event", G_CALLBACK(destroy), NULL);
 
-	GtkWidget *mnuSettings = GTK_WIDGET(gtk_builder_get_object (builder, "mnuSettings"));
-    g_signal_connect (G_OBJECT (mnuSettings), "activate", GTK_SIGNAL_FUNC (menu_settings_clicked), NULL);
-
-	GtkWidget *mnuExit = GTK_WIDGET(gtk_builder_get_object (builder, "mnuExit"));
-	g_signal_connect(G_OBJECT (mnuExit), "activate", GTK_SIGNAL_FUNC (menu_exit_clicked), NULL);
-
-	GtkWidget *mnuAbout = GTK_WIDGET(gtk_builder_get_object (builder, "mnuAbout"));
-	g_signal_connect(G_OBJECT (mnuAbout), "activate", GTK_SIGNAL_FUNC (menu_about_clicked), NULL);
-
-	lblUpdate = GTK_WIDGET(gtk_builder_get_object (builder, "lblUpdate"));
-
-	image = GTK_WIDGET(gtk_builder_get_object (builder, "image"));
 	update_image();
-
 	load_settings();
 
-	if(! start_camera(window))
+	gtk_widget_show_all(GTK_WIDGET(appdata->window));
+
+	if(! start_camera(appdata->window))
 	{
+		g_warning("Unable to start camera\n");
+
 		GtkWidget *failDialog = gtk_message_dialog_new(NULL,
 	     		GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR,
 	     		GTK_BUTTONS_OK,
@@ -130,30 +135,62 @@ int main(int argc, char *argv[]) {
 		gtk_dialog_run (GTK_DIALOG (failDialog));
 		gtk_widget_destroy (failDialog);
 	}
-
-
-	g_object_unref( G_OBJECT( builder ) );
-	gtk_widget_show( window );
+	sleep(1);
 
 	pthread_create(&thread, NULL, count_down_thread, NULL);
+
 	gtk_main();
 
 	gdk_threads_leave ();
 	return( 0 );
 }
 
+void initApp()
+{
+	gchar *webview_dir;
+	gchar *app_dir;
+
+	appdata 						= g_new0(AppData, 1);
+	settings 						= g_new0(SettingsData, 1);
+	config 							= g_new0(ConfigData, 1);
+
+	settings->update_interval 		= 120;
+	settings->server_port 			= "8080";
+
+#ifdef DEV
+	webview_dir = ".";
+	app_dir = ".";
+#else
+	webview_dir = "/usr/var/webview";
+	app_dir = "/usr/bin";
+#endif
+
+	config->base_url 				= "http://localhost:";
+	config->image_file	 			= g_build_filename(webview_dir, "/website/Picture.jpg", NULL);
+	config->app_dir 				= g_build_filename(webview_dir, "/config/", NULL);
+	config->web_server_script 		= "webview.d";
+	config->web_server_dir 			= g_build_filename(webview_dir, "/website/", NULL);
+	config->config_dir 				= g_build_filename(webview_dir, "/config/", NULL);
+	config->web_log_file 			= g_build_filename(webview_dir, "/logs/thttpd_log", NULL);
+	config->GC_ROOT 				= "/apps/gladetest/";
+	config->settings_dialog			= g_build_filename(webview_dir, "/dialogs/settings.xml", NULL);
+	config->missing_image_file		= g_build_filename(webview_dir, "/website/missing_image.png", NULL);
+	config->about_dialog			= g_build_filename(webview_dir, "/dialogs/about.xml", NULL);
+
+}
+
 void
 destroy (GtkWidget *widget, gpointer data)
 {
 	stop_webserver();
-	 end_camera();
-     gtk_main_quit ();
+	end_camera();
+    gtk_main_quit();
 }
 
 void
 set_open_web_button(GtkWidget *web_link_button)
 {
-	gchar *web_url = g_strconcat(base_url, server_port, NULL);
+	gchar *web_url = g_strconcat(config->base_url, settings->server_port, NULL);
 	gtk_link_button_set_uri(GTK_LINK_BUTTON(web_link_button), web_url);
 
 }
@@ -163,15 +200,27 @@ static void
 start_button_clicked(GtkWidget *window, gpointer data)
 {
 
-	timmer_running = TRUE;
+	if(timmer_running != TRUE)
+	{
+
+	hildon_banner_show_information(GTK_WIDGET(appdata->window),
+			NULL, "Starting Countdown Timer");
+		timmer_running = TRUE;
+	}
 }
 
 
 static void
 stop_button_clicked(GtkWidget *window, gpointer data)
 {
-	timmer_running = FALSE;
-	gtk_label_set_label(GTK_LABEL(lblUpdate), "Stopped" );
+	if(timmer_running != FALSE)
+	{
+		hildon_banner_show_information(GTK_WIDGET(appdata->window),
+				NULL, "Stopping Countdown Timer");
+
+		timmer_running = FALSE;
+		gtk_label_set_label(GTK_LABEL(lblUpdate), "Stopped" );
+	}
 }
 
 static void
@@ -183,14 +232,14 @@ menu_settings_clicked(GtkMenuItem *menuitem, gpointer data)
 	gchar  buf[1024];
 
 	builder = gtk_builder_new();
-	if( ! gtk_builder_add_from_file( builder, "src/settings.xml", &error ) )
+	if( ! gtk_builder_add_from_file( builder, config->settings_dialog, &error ) )
 	{
 		g_warning( "%s", error->message );
 		g_free( error );
 		return;
 	}
 
-	window = GTK_WIDGET( gtk_builder_get_object( builder, "window1" ) );
+	window = GTK_WIDGET( gtk_builder_get_object( builder, "dialog1" ) );
 
 	GtkWidget *btnCancel = GTK_WIDGET(gtk_builder_get_object (builder, "btnCancel"));
 	g_signal_connect_swapped (btnCancel, "clicked", G_CALLBACK (gtk_widget_destroy), window);
@@ -199,10 +248,10 @@ menu_settings_clicked(GtkMenuItem *menuitem, gpointer data)
 	g_signal_connect_swapped (btnSave, "clicked", G_CALLBACK (on_btnSave_clicked), window);
 
 	txtServerPort = GTK_WIDGET(gtk_builder_get_object (builder, "txtServerPort"));
-	gtk_entry_set_text(GTK_ENTRY(txtServerPort), server_port);
+	gtk_entry_set_text(GTK_ENTRY(txtServerPort), settings->server_port);
 
 	txtUpdateInterval = GTK_WIDGET(gtk_builder_get_object (builder, "txtUpdateInterval"));
-	g_ascii_dtostr(buf, sizeof (buf), update_interval);
+	g_ascii_dtostr(buf, sizeof (buf), settings->update_interval);
 	gtk_entry_set_text(GTK_ENTRY(txtUpdateInterval), buf);
 
 	g_object_unref( G_OBJECT( builder ) );
@@ -212,7 +261,7 @@ menu_settings_clicked(GtkMenuItem *menuitem, gpointer data)
 static void
 menu_exit_clicked(GtkMenuItem *menuitem, gpointer data)
 {
-	gtk_main_quit();
+	destroy(NULL, NULL);
 }
 
 static void
@@ -223,7 +272,7 @@ menu_about_clicked(GtkMenuItem *menuitem, gpointer data)
 	GError     *error = NULL;
 
 	builder = gtk_builder_new();
-	if( ! gtk_builder_add_from_file( builder, "src/about.xml", &error ) )
+	if( ! gtk_builder_add_from_file( builder, config->about_dialog, &error ) )
 	{
 		g_warning( "%s", error->message );
 		g_free( error );
@@ -243,16 +292,16 @@ on_btnSave_clicked(GtkWidget *button, gpointer userdata) {
 
 
 	gint server_port_int = g_ascii_strtod(gtk_entry_get_text(GTK_ENTRY(txtServerPort)), NULL);
-	if( (server_port_int < 80) || (server_port_int > 1024))
+	if( (server_port_int < 1024) || (server_port_int > 32766) )
 	{
-		GtkWidget *failDialog = gtk_message_dialog_new(NULL,
-	     		GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR,
-	     		GTK_BUTTONS_OK,
-	     		"Bad server port entered. Please enter a value between 80 and 1024\n");
-		gtk_dialog_run (GTK_DIALOG (failDialog));
-		gtk_widget_destroy (failDialog);
-		return;
-	}
+			GtkWidget *failDialog = gtk_message_dialog_new(NULL,
+		     		GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR,
+		     		GTK_BUTTONS_OK,
+		     		"Bad server port value.\nServer port must be between 1024 and 32766.");
+			gtk_dialog_run (GTK_DIALOG (failDialog));
+			gtk_widget_destroy (failDialog);
+			return;
+	  }
 
 	gint update_interval_int = g_ascii_strtod(gtk_entry_get_text(GTK_ENTRY(txtUpdateInterval)), NULL);
 	if( (update_interval_int < 1) || (update_interval_int > 1000000) )
@@ -278,7 +327,7 @@ static void
 refresh_button_clicked(GtkWidget *button, gpointer data)
 {
 
-	take_photo();
+	take_photo(config->image_file);
 	sleep(1);
 	update_image();
 }
@@ -287,10 +336,13 @@ void
 update_image()
 {
 
-	if (!g_file_test (image_file, G_FILE_TEST_EXISTS))
+	if (!g_file_test (config->image_file, G_FILE_TEST_EXISTS))
+	{
+		g_warning( "Missing Image file: %s", config->image_file);
 		return;
+	}
 
-	gtk_image_set_from_file(GTK_IMAGE(image), image_file);
+	gtk_image_set_from_file(GTK_IMAGE(image), config->image_file);
 
 	GdkPixbuf *pixbuf =	gtk_image_get_pixbuf(GTK_IMAGE(image));
 	if (pixbuf == NULL)
@@ -310,29 +362,43 @@ load_settings()
 {
 	  GConfClient* gcClient = NULL;
 	  GConfValue* val = NULL;
+	  gdouble sport;
 
 	  gcClient = gconf_client_get_default();
 	  g_assert(GCONF_IS_CLIENT(gcClient));
 
-	  gchar *port_path = g_strconcat(GC_ROOT, "port", NULL);
+	  gchar *port_path = g_strconcat(config->GC_ROOT, "port", NULL);
 	  val = gconf_client_get_without_default(gcClient, port_path, NULL);
 	  if (val == NULL) {
 		  g_warning("Unable to read server port value\n");
 	  } else {
 		  if (val->type == GCONF_VALUE_STRING) {
-			  server_port = g_strndup(gconf_value_get_string(val),STRING_MAX_SIZE - 1);
+			  settings->server_port = g_strndup(gconf_value_get_string(val),STRING_MAX_SIZE - 1);
+
+			  sport = g_ascii_strtod(settings->server_port, NULL);
+			  if( (sport < 1024) || (sport > 32766) )
+			  {
+					GtkWidget *failDialog = gtk_message_dialog_new(NULL,
+				     		GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR,
+				     		GTK_BUTTONS_OK,
+				     		"Bad server port value.\nServer port must be between 1024 and 32766.\nDefaulting to 8080.");
+					gtk_dialog_run (GTK_DIALOG (failDialog));
+					gtk_widget_destroy (failDialog);
+					settings->server_port = "8080";
+			  }
+
 		  } else {
 			  g_warning("Bad server port value set\n");
 		  }
 	  }
 
-	  gchar *update_path = g_strconcat(GC_ROOT, "update", NULL);
+	  gchar *update_path = g_strconcat(config->GC_ROOT, "update", NULL);
 	  val = gconf_client_get_without_default(gcClient, update_path, NULL);
 	  if (val == NULL) {
 		  g_warning("Unable to read update interval value\n");
 	  } else {
 		  if (val->type == GCONF_VALUE_INT) {
-			  update_interval = gconf_value_get_int(val);
+			  settings->update_interval = gconf_value_get_int(val);
 		  } else {
 			  g_warning("Bad update interval set\n");
 		  }
@@ -351,7 +417,7 @@ void save_settings()
 	  gcClient = gconf_client_get_default();
 	  g_assert(GCONF_IS_CLIENT(gcClient));
 
-	  gchar *port_path = g_strconcat(GC_ROOT, "port", NULL);
+	  gchar *port_path = g_strconcat(config->GC_ROOT, "port", NULL);
 	  const gchar *save_server_port = gtk_entry_get_text(GTK_ENTRY(txtServerPort));
 	  if (! gconf_client_set_string(gcClient, port_path, save_server_port, NULL) ) {
 			GtkWidget *failDialog = gtk_message_dialog_new(NULL,
@@ -362,7 +428,7 @@ void save_settings()
 			gtk_widget_destroy (failDialog);
 	  }
 
-	  gchar *update_path = g_strconcat(GC_ROOT, "update", NULL);
+	  gchar *update_path = g_strconcat(config->GC_ROOT, "update", NULL);
 	  const gchar *save_update_interval = gtk_entry_get_text(GTK_ENTRY(txtUpdateInterval));
 	  if (! gconf_client_set_int(gcClient, update_path, g_ascii_strtod(save_update_interval, NULL), NULL) ) {
 			GtkWidget *failDialog = gtk_message_dialog_new(NULL,
@@ -381,7 +447,7 @@ void save_settings()
 void *count_down_thread ()
 {
 	gchar  buf[1024];
-	int countdown = update_interval;
+	int countdown = settings->update_interval;
 
 	for (;;)
 	{
@@ -394,11 +460,11 @@ void *count_down_thread ()
 
 			if(countdown == 1)
 			{
-				take_photo();
+				take_photo(config->image_file);
 				sleep(1);
 				update_image();
 
-				countdown = update_interval;
+				countdown = settings->update_interval;
 
 			} else
 				countdown--;
@@ -410,7 +476,7 @@ void *count_down_thread ()
 
 
 		} else {
-			countdown = update_interval;
+			countdown = settings->update_interval;
 		}
 
 	}
@@ -422,19 +488,22 @@ void *count_down_thread ()
 gboolean
 start_webserver()
 {
-	gchar *arg[3] = {web_server_script, "start", NULL};
+
+	hildon_banner_show_information(
+			GTK_WIDGET(appdata->window),
+			NULL,
+			"Starting Webserver");
+
+	gchar *arg[4] = {config->web_server_script, "start", settings->server_port, NULL};
 	gboolean retval;
 
-	if(update_http_config() != TRUE)
-		return FALSE;
-
-	retval = g_spawn_sync (app_dir,
+	retval = g_spawn_sync (config->app_dir,
 							arg, NULL,
 			                G_SPAWN_STDERR_TO_DEV_NULL,
 			                NULL, NULL, NULL, NULL, NULL, NULL);
 	sleep(1);
 
-	if ( retval != TRUE)
+	if (retval != TRUE)
 		return FALSE;
 	else
 		return TRUE;
@@ -446,10 +515,15 @@ gboolean
 stop_webserver()
 {
 
-	gchar *arg[3] = {web_server_script, "stop", NULL};
+	hildon_banner_show_information(
+			GTK_WIDGET(appdata->window),
+			NULL,
+			"Stopping Webserver");
+
+	gchar *arg[3] = {config->web_server_script, "stop", NULL};
 	gboolean retval;
 
-	retval = g_spawn_sync (app_dir,
+	retval = g_spawn_sync (config->app_dir,
 							arg, NULL,
 			                G_SPAWN_STDERR_TO_DEV_NULL,
 			                NULL, NULL, NULL, NULL, NULL, NULL);
@@ -462,48 +536,92 @@ stop_webserver()
 
 }
 
-gboolean
-update_http_config()
+void build_interface()
 {
-	GString *filename;
-	FILE *out;
 
-	filename = g_string_new(g_build_filename(config_dir, web_config, NULL));
+	GtkWidget *fixed = gtk_fixed_new();
+	gtk_container_add(GTK_CONTAINER(appdata->window), fixed);
+	gtk_widget_show(fixed);
 
-	if (g_file_test (filename->str, G_FILE_TEST_EXISTS))
+	/*  GtkImage */
+	image = gtk_image_new();
+	if (g_file_test (config->missing_image_file, G_FILE_TEST_EXISTS))
 	{
-		if(g_unlink(filename->str) != 0)
-		{
-			g_warning("Unable to update web server config file%s\n", filename->str);
-			GtkWidget *failDialog = gtk_message_dialog_new(NULL,
-								GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR,
-								GTK_BUTTONS_OK,
-								"Unable to update web server config file\n");
-			gtk_dialog_run (GTK_DIALOG (failDialog));
-			gtk_widget_destroy (failDialog);
-			return FALSE;
-		}
+		gtk_image_set_from_file(GTK_IMAGE(image), config->missing_image_file);
+	}else{
+		g_warning("unable to load inital image file %s\n", config->missing_image_file);
 	}
+	gtk_fixed_put(GTK_FIXED(fixed), image, 10, 10);
+	GdkPixbuf *pixbuf =	gtk_image_get_pixbuf(GTK_IMAGE(image));
+	pixbuf = gdk_pixbuf_scale_simple(pixbuf, 300, 300, GDK_INTERP_BILINEAR);
+	gtk_image_set_from_pixbuf(GTK_IMAGE(image), pixbuf);
+	gtk_widget_show(image);
 
-	out = g_fopen(filename->str, "w");
-	if (out == NULL)
-	{
-		GtkWidget *failDialog = gtk_message_dialog_new(NULL,
-				     		GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR,
-				     		GTK_BUTTONS_OK,
-				     		"Unable to create web server config file\n");
-		gtk_dialog_run (GTK_DIALOG (failDialog));
-		gtk_widget_destroy (failDialog);
-	    return FALSE;
-	}
+	/* GtkLabel */
+	GtkWidget *label1 = gtk_label_new("Next Update:");
+	gtk_fixed_put(GTK_FIXED(fixed), label1, 450, 100);
+	gtk_widget_show(label1);
 
-	fprintf(out, "dir=%s\n", web_server_dir);
-	fprintf(out, "cgipat=**.cgi\n");
-	fprintf(out, "logfile=%s\n",web_log_file);
-	fprintf(out, "pidfile=/var/run/thttpd.pid\n");
-	fprintf(out, "port=%s\n",server_port);
+	/* GtkLabel */
+	lblUpdate = gtk_label_new("Stopped");
+	gtk_fixed_put(GTK_FIXED(fixed), lblUpdate, 590, 100);
+	gtk_widget_show(lblUpdate);
 
-	fclose(out);
-	sleep(1);
-	return TRUE;
+	/* GtkButton */
+	GtkWidget *btnStart = gtk_button_new_with_label("Start");
+	gtk_fixed_put(GTK_FIXED(fixed), btnStart, 450, 160);
+	gtk_widget_set_size_request (btnStart, 80, 40);
+	gtk_widget_show(btnStart);
+    g_signal_connect (G_OBJECT (btnStart), "clicked", G_CALLBACK (start_button_clicked), NULL);
+
+	/* GtkButton */
+	GtkWidget *btnStop = gtk_button_new_with_label("Stop");
+	gtk_fixed_put(GTK_FIXED(fixed), btnStop, 545, 160);
+	gtk_widget_set_size_request (btnStop, 80, 40);
+	gtk_widget_show(btnStop);
+    g_signal_connect (G_OBJECT (btnStop), "clicked", G_CALLBACK (stop_button_clicked), NULL);
+
+	/* GtkButton */
+	GtkWidget *btnRefresh = gtk_button_new_with_label("Refresh");
+	gtk_fixed_put(GTK_FIXED(fixed), btnRefresh, 115, 325);
+	gtk_widget_set_size_request (btnRefresh, 100, 40);
+	gtk_widget_show(btnRefresh);
+	g_signal_connect (G_OBJECT (btnRefresh), "clicked", G_CALLBACK (refresh_button_clicked), NULL);
+
+}
+
+static void create_menu()
+{
+    /* Create needed variables */
+    GtkWidget *main_menu;
+    GtkWidget *item_settings;
+    GtkWidget *item_about;
+    GtkWidget *item_separator;
+    GtkWidget *item_close;
+
+    /* Create new main menu */
+    main_menu = gtk_menu_new();
+
+    /* Create menu items */
+    item_settings = gtk_menu_item_new_with_label("Settings");
+    item_about = gtk_menu_item_new_with_label("About");
+    item_separator = gtk_separator_menu_item_new();
+    item_close = gtk_menu_item_new_with_label("Close");
+
+    /* Add menu items to right menus*/
+    gtk_menu_append(main_menu, item_settings);
+    gtk_menu_append(main_menu, item_about);
+    gtk_menu_append(main_menu, item_separator);
+    gtk_menu_append(main_menu, item_close);
+
+    hildon_window_set_menu(appdata->window, GTK_MENU(main_menu));
+
+    /* Attach the callback functions to the activate signal */
+    g_signal_connect(G_OBJECT(item_settings), "activate", GTK_SIGNAL_FUNC(menu_settings_clicked), NULL);
+    g_signal_connect(G_OBJECT(item_about), "activate", GTK_SIGNAL_FUNC(menu_about_clicked), NULL);
+    g_signal_connect(G_OBJECT(item_close), "activate", GTK_SIGNAL_FUNC(menu_exit_clicked), NULL);
+
+    /* Make all menu widgets visible*/
+    gtk_widget_show_all(GTK_WIDGET(main_menu));
+
 }
