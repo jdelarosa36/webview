@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Nokia Webview</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- hide
+// "var speed" is the refresh rate adjustment in seconds.
+var speed = 30;
+var y = 1;
+var x = speed + y;
+var time = x - y;
+var now;
+campicture = new Image();
+
+function openremoteWindow()
+	{
+	stopClock();
+	open ("index.htm","JSCam_Remote", "height=640,width=480,scrollbars=0,resizable=yes,status=0")
+	}
+
+function stopClock() {
+	x = "off";
+	document.form0.clock.value = x;
+}
+
+function startClock() {
+        if (x != "off") {
+	x = x - y;
+	document.form0.clock.value = x;
+	if (x <= 1)
+        {
+          reload()
+        }
+	timerID = setTimeout("startClock()", 1000);
+        }
+}
+
+function reload() {
+	now = new Date();
+	var camImg = "Picture.jpg" + "?" + now.getTime();
+	document.campicture.src = camImg;
+    x = speed;
+    document.form0.clock.value = x;
+              	  }
+//end hide -->
+</SCRIPT>
+
+
+<BODY BGCOLOR="#ffffff" TEXT="#000066" LINK="#0066ff" ALINK="#ff0000" VLINK="#00aaff">
+<TABLE WIDTH="100%" HEIGHT="50" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+  <TR>
+    <TD ALIGN="CENTER" BGCOLOR="#aaddff" HEIGHT="5"><TABLE WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0">
+<TR><TD></TD></TR></TABLE></TD>
+  </TR>
+  <TR>
+    <TD ALIGN="CENTER" BGCOLOR="#ffffff"><FONT FACE="ARIAL" SIZE="6" 
+    COLOR="#000099"><B>Webview</B></FONT></TD>
+  </TR>
+  <TR>
+    <TD ALIGN="CENTER" BGCOLOR="#aaddff" HEIGHT="5"><TABLE WIDTH="100%" BORDER="0" CELLPADDING="5" CELLSPACING="0">
+<TR><TD></TD></TR></TABLE></TD>
+  </TR>
+</TABLE>
+
+<FORM ACTION="index.htm" NAME="form0">
+<CENTER>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="ffffff">
+<TR><TD ALIGN="center"><A HREF="javascript:openremoteWindow()"><IMG 
+NAME="campicture" SRC="Picture.jpg" ALT="Picture" BORDER="0" HEIGHT="240" 
+WIDTH="320" RELOAD="60"></A></TD>
+</TR>
+</TABLE>
+<FONT SIZE="2">Image will reload in <INPUT TYPE="text" NAME="clock" SIZE="3" VALUE=""> seconds.</FONT>
+<BR>
+</CENTER>
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD WIDTH="100%" ALIGN="CENTER" COLSPAN="2"><FONT SIZE="3">Click on the image for a remote window.</FONT>
+<BR>
+<FONT SIZE="3">PLEASE DO NOT HIT RELOAD!!</FONT>
+</TABLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- hide
+startClock();
+//end hide -->
+</SCRIPT>
+
+</body>
+</html>
