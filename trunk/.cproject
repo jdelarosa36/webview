@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?fileVersion 4.0.0?>
+
+<cproject>
+<storageModule moduleId="org.eclipse.cdt.core.settings">
+<cconfiguration id="Scratchbox 1~DIABLO_X86.1255098243806">
+<storageModule buildSystemId="org.maemo.mica.cpp.project.core.CConfigurationDataProvider" id="Scratchbox 1~DIABLO_X86.1255098243806" moduleId="org.eclipse.cdt.core.settings" name="DIABLO_X86 (Debug)">
+<externalSettings/>
+<extensions>
+<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.maemo.mica.cpp.project.builder.autotools.MicaAutotoolsErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+</extensions>
+</storageModule>
+<storageModule executionEnvironment="org.maemo.mica.maemosdk.core.maemo" moduleId="buildConfig" sdkDisplayName="Scratchbox 1 (/scratchbox/)" sdkName="Scratchbox 1" stockConfigurationId="org.maemo.mica.cpp.project.builder.make.make.debug" targetName="DIABLO_X86"/>
+<storageModule moduleId="buildConfig.metaData"/>
+<storageModule environmentOp_0="CFLAGS=-O0 -g" environmentOp_1="CXXFLAGS=-O0 -g" moduleId="buildConfig.environment"/>
+<storageModule id="Scratchbox 1~DIABLO_X86.1255098243806" moduleId="defaultConfigurationDataProvider" name="DIABLO_X86 (Debug)">
+<sourceEntries>
+<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="/maindialog/src"/>
+</sourceEntries>
+<folderData id="Scratchbox 1~DIABLO_X86.1255098243806.1013529865" name="" path="">
+<languageData contentTypeIds="org.eclipse.cdt.core.cxxSource;org.eclipse.cdt.core.cxxHeader" id="Scratchbox 1~DIABLO_X86.1255098243806.1013529865.37195677" languageId="org.eclipse.cdt.core.g++" name="GNU C++" supportedEntryKinds="includePath;includeFile;macro;macroFile">
+<settingEntries>
+<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/maindialog/src"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/hildon-1"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/gtk-2.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/lib/gtk-2.0/include"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/atk-1.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/cairo"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/pango-1.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/glib-2.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/lib/glib-2.0/include"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/freetype2"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/libpng12"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/local/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/compilers/cs2005q3.2-glibc2.5-i386/lib/gcc/i686-linux/3.4.4/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/compilers/cs2005q3.2-glibc2.5-i386/i686-linux/sys-include"/>
+<entry flags="" kind="macro" name="MAEMO_CHANGES" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__STDC_HOSTED__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC__" value="3"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC_MINOR__" value="4"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC_PATCHLEVEL__" value="4"/>
+<entry flags="BUILTIN" kind="macro" name="__SIZE_TYPE__" value="unsigned int"/>
+<entry flags="BUILTIN" kind="macro" name="__PTRDIFF_TYPE__" value="int"/>
+<entry flags="BUILTIN" kind="macro" name="__WCHAR_TYPE__" value="long int"/>
+<entry flags="BUILTIN" kind="macro" name="__WINT_TYPE__" value="unsigned int"/>
+<entry flags="BUILTIN" kind="macro" name="__GXX_ABI_VERSION" value="1002"/>
+<entry flags="BUILTIN" kind="macro" name="__SCHAR_MAX__" value="127"/>
+<entry flags="BUILTIN" kind="macro" name="__SHRT_MAX__" value="32767"/>
+<entry flags="BUILTIN" kind="macro" name="__INT_MAX__" value="2147483647"/>
+<entry flags="BUILTIN" kind="macro" name="__LONG_MAX__" value="2147483647L"/>
+<entry flags="BUILTIN" kind="macro" name="__LONG_LONG_MAX__" value="9223372036854775807LL"/>
+<entry flags="BUILTIN" kind="macro" name="__WCHAR_MAX__" value="2147483647"/>
+<entry flags="BUILTIN" kind="macro" name="__CHAR_BIT__" value="8"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_EVAL_METHOD__" value="2"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_RADIX__" value="2"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MANT_DIG__" value="24"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_DIG__" value="6"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN_EXP__" value="(-125)"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN_10_EXP__" value="(-37)"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX_EXP__" value="128"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX_10_EXP__" value="38"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX__" value="3.40282347e+38F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN__" value="1.17549435e-38F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_EPSILON__" value="1.19209290e-7F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_DENORM_MIN__" value="1.40129846e-45F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MANT_DIG__" value="53"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_DIG__" value="15"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN_EXP__" value="(-1021)"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN_10_EXP__" value="(-307)"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX_EXP__" value="1024"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX_10_EXP__" value="308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX__" value="1.7976931348623157e+308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN__" value="2.2250738585072014e-308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_EPSILON__" value="2.2204460492503131e-16"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_DENORM_MIN__" value="4.9406564584124654e-324"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MANT_DIG__" value="64"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_DIG__" value="18"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN_EXP__" value="(-16381)"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN_10_EXP__" value="(-4931)"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX_EXP__" value="16384"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX_10_EXP__" value="4932"/>
+<entry flags="BUILTIN" kind="macro" name="__DECIMAL_DIG__" value="21"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX__" value="1.18973149535723176502e+4932L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN__" value="3.36210314311209350626e-4932L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_EPSILON__" value="1.08420217248550443401e-19L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_DENORM_MIN__" value="3.64519953188247460253e-4951L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__REGISTER_PREFIX__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__USER_LABEL_PREFIX__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__VERSION__" value="&quot;3.4.4 (release) (CodeSourcery ARM 2005q3-2)&quot;"/>
+<entry flags="BUILTIN" kind="macro" name="__NO_INLINE__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FINITE_MATH_ONLY__" value="0"/>
+<entry flags="BUILTIN" kind="macro" name="__i386" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__i386__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="i386" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__tune_i686__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__tune_pentiumpro__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__gnu_linux__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__linux" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__linux__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="linux" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__unix" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__unix__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="unix" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__ELF__" value="1"/>
+</settingEntries>
+</languageData>
+<languageData contentTypeIds="org.eclipse.cdt.core.cSource;org.eclipse.cdt.core.cHeader" id="Scratchbox 1~DIABLO_X86.1255098243806.1013529865.1533809079" languageId="org.eclipse.cdt.core.gcc" name="GNU C" supportedEntryKinds="includePath;includeFile;macro;macroFile">
+<settingEntries>
+<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/maindialog/src"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/hildon-1"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/gtk-2.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/lib/gtk-2.0/include"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/atk-1.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/cairo"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/pango-1.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/glib-2.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/lib/glib-2.0/include"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/freetype2"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/libpng12"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/local/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/compilers/cs2005q3.2-glibc2.5-i386/lib/gcc/i686-linux/3.4.4/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/compilers/cs2005q3.2-glibc2.5-i386/i686-linux/sys-include"/>
+<entry flags="" kind="macro" name="MAEMO_CHANGES" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__STDC_HOSTED__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC__" value="3"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC_MINOR__" value="4"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC_PATCHLEVEL__" value="4"/>
+<entry flags="BUILTIN" kind="macro" name="__SIZE_TYPE__" value="unsigned int"/>
+<entry flags="BUILTIN" kind="macro" name="__PTRDIFF_TYPE__" value="int"/>
+<entry flags="BUILTIN" kind="macro" name="__WCHAR_TYPE__" value="long int"/>
+<entry flags="BUILTIN" kind="macro" name="__WINT_TYPE__" value="unsigned int"/>
+<entry flags="BUILTIN" kind="macro" name="__GXX_ABI_VERSION" value="1002"/>
+<entry flags="BUILTIN" kind="macro" name="__SCHAR_MAX__" value="127"/>
+<entry flags="BUILTIN" kind="macro" name="__SHRT_MAX__" value="32767"/>
+<entry flags="BUILTIN" kind="macro" name="__INT_MAX__" value="2147483647"/>
+<entry flags="BUILTIN" kind="macro" name="__LONG_MAX__" value="2147483647L"/>
+<entry flags="BUILTIN" kind="macro" name="__LONG_LONG_MAX__" value="9223372036854775807LL"/>
+<entry flags="BUILTIN" kind="macro" name="__WCHAR_MAX__" value="2147483647"/>
+<entry flags="BUILTIN" kind="macro" name="__CHAR_BIT__" value="8"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_EVAL_METHOD__" value="2"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_RADIX__" value="2"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MANT_DIG__" value="24"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_DIG__" value="6"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN_EXP__" value="(-125)"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN_10_EXP__" value="(-37)"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX_EXP__" value="128"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX_10_EXP__" value="38"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX__" value="3.40282347e+38F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN__" value="1.17549435e-38F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_EPSILON__" value="1.19209290e-7F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_DENORM_MIN__" value="1.40129846e-45F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MANT_DIG__" value="53"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_DIG__" value="15"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN_EXP__" value="(-1021)"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN_10_EXP__" value="(-307)"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX_EXP__" value="1024"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX_10_EXP__" value="308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX__" value="1.7976931348623157e+308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN__" value="2.2250738585072014e-308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_EPSILON__" value="2.2204460492503131e-16"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_DENORM_MIN__" value="4.9406564584124654e-324"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MANT_DIG__" value="64"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_DIG__" value="18"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN_EXP__" value="(-16381)"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN_10_EXP__" value="(-4931)"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX_EXP__" value="16384"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX_10_EXP__" value="4932"/>
+<entry flags="BUILTIN" kind="macro" name="__DECIMAL_DIG__" value="21"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX__" value="1.18973149535723176502e+4932L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN__" value="3.36210314311209350626e-4932L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_EPSILON__" value="1.08420217248550443401e-19L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_DENORM_MIN__" value="3.64519953188247460253e-4951L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__REGISTER_PREFIX__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__USER_LABEL_PREFIX__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__VERSION__" value="&quot;3.4.4 (release) (CodeSourcery ARM 2005q3-2)&quot;"/>
+<entry flags="BUILTIN" kind="macro" name="__NO_INLINE__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FINITE_MATH_ONLY__" value="0"/>
+<entry flags="BUILTIN" kind="macro" name="__i386" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__i386__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="i386" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__tune_i686__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__tune_pentiumpro__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__gnu_linux__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__linux" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__linux__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="linux" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__unix" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__unix__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="unix" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__ELF__" value="1"/>
+</settingEntries>
+</languageData>
+<languageData contentTypeIds="org.eclipse.cdt.core.asmSource" id="Scratchbox 1~DIABLO_X86.1255098243806.1013529865.847890897" languageId="org.eclipse.cdt.core.assembly" name="Assembly" supportedEntryKinds="includePath;includeFile;macro;macroFile">
+<settingEntries>
+<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/maindialog/src"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/hildon-1"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/gtk-2.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/lib/gtk-2.0/include"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/atk-1.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/cairo"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/pango-1.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/glib-2.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/lib/glib-2.0/include"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/freetype2"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/libpng12"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/local/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/compilers/cs2005q3.2-glibc2.5-i386/lib/gcc/i686-linux/3.4.4/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/compilers/cs2005q3.2-glibc2.5-i386/i686-linux/sys-include"/>
+<entry flags="" kind="macro" name="MAEMO_CHANGES" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__STDC_HOSTED__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC__" value="3"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC_MINOR__" value="4"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC_PATCHLEVEL__" value="4"/>
+<entry flags="BUILTIN" kind="macro" name="__SIZE_TYPE__" value="unsigned int"/>
+<entry flags="BUILTIN" kind="macro" name="__PTRDIFF_TYPE__" value="int"/>
+<entry flags="BUILTIN" kind="macro" name="__WCHAR_TYPE__" value="long int"/>
+<entry flags="BUILTIN" kind="macro" name="__WINT_TYPE__" value="unsigned int"/>
+<entry flags="BUILTIN" kind="macro" name="__GXX_ABI_VERSION" value="1002"/>
+<entry flags="BUILTIN" kind="macro" name="__SCHAR_MAX__" value="127"/>
+<entry flags="BUILTIN" kind="macro" name="__SHRT_MAX__" value="32767"/>
+<entry flags="BUILTIN" kind="macro" name="__INT_MAX__" value="2147483647"/>
+<entry flags="BUILTIN" kind="macro" name="__LONG_MAX__" value="2147483647L"/>
+<entry flags="BUILTIN" kind="macro" name="__LONG_LONG_MAX__" value="9223372036854775807LL"/>
+<entry flags="BUILTIN" kind="macro" name="__WCHAR_MAX__" value="2147483647"/>
+<entry flags="BUILTIN" kind="macro" name="__CHAR_BIT__" value="8"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_EVAL_METHOD__" value="2"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_RADIX__" value="2"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MANT_DIG__" value="24"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_DIG__" value="6"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN_EXP__" value="(-125)"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN_10_EXP__" value="(-37)"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX_EXP__" value="128"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX_10_EXP__" value="38"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX__" value="3.40282347e+38F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN__" value="1.17549435e-38F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_EPSILON__" value="1.19209290e-7F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_DENORM_MIN__" value="1.40129846e-45F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MANT_DIG__" value="53"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_DIG__" value="15"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN_EXP__" value="(-1021)"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN_10_EXP__" value="(-307)"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX_EXP__" value="1024"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX_10_EXP__" value="308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX__" value="1.7976931348623157e+308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN__" value="2.2250738585072014e-308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_EPSILON__" value="2.2204460492503131e-16"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_DENORM_MIN__" value="4.9406564584124654e-324"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MANT_DIG__" value="64"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_DIG__" value="18"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN_EXP__" value="(-16381)"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN_10_EXP__" value="(-4931)"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX_EXP__" value="16384"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX_10_EXP__" value="4932"/>
+<entry flags="BUILTIN" kind="macro" name="__DECIMAL_DIG__" value="21"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX__" value="1.18973149535723176502e+4932L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN__" value="3.36210314311209350626e-4932L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_EPSILON__" value="1.08420217248550443401e-19L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_DENORM_MIN__" value="3.64519953188247460253e-4951L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__REGISTER_PREFIX__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__USER_LABEL_PREFIX__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__VERSION__" value="&quot;3.4.4 (release) (CodeSourcery ARM 2005q3-2)&quot;"/>
+<entry flags="BUILTIN" kind="macro" name="__NO_INLINE__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FINITE_MATH_ONLY__" value="0"/>
+<entry flags="BUILTIN" kind="macro" name="__i386" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__i386__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="i386" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__tune_i686__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__tune_pentiumpro__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__gnu_linux__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__linux" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__linux__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="linux" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__unix" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__unix__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="unix" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__ELF__" value="1"/>
+</settingEntries>
+</languageData>
+</folderData>
+<buildData errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.VCErrorParser;org.maemo.mica.cpp.project.builder.autotools.MicaAutotoolsErrorParser" id="Scratchbox 1~DIABLO_X86.1255098243806.1440096512"/>
+<targetPlatformData binaryParsers="org.eclipse.cdt.core.ELF" id="Scratchbox 1~DIABLO_X86.1255098243806.479443838"/>
+</storageModule>
+<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
+<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
+<buildTargets>
+<target name="all" path="" targetID="org.maemo.mica.cpp.project.builder.make.builder">
+<buildCommand>make</buildCommand>
+<buildArguments></buildArguments>
+<buildTarget>all</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+<runAllBuilders>false</runAllBuilders>
+</target>
+</buildTargets>
+</storageModule>
+</cconfiguration>
+<cconfiguration id="Scratchbox 1~DIABLO_X86.1255098243809">
+<storageModule buildSystemId="org.maemo.mica.cpp.project.core.CConfigurationDataProvider" id="Scratchbox 1~DIABLO_X86.1255098243809" moduleId="org.eclipse.cdt.core.settings" name="DIABLO_X86 (Optimized)">
+<externalSettings/>
+<extensions>
+<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.maemo.mica.cpp.project.builder.autotools.MicaAutotoolsErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+</extensions>
+</storageModule>
+<storageModule executionEnvironment="org.maemo.mica.maemosdk.core.maemo" moduleId="buildConfig" sdkDisplayName="Scratchbox 1 (/scratchbox/)" sdkName="Scratchbox 1" stockConfigurationId="org.maemo.mica.cpp.project.builder.make.make.optimized" targetName="DIABLO_X86"/>
+<storageModule moduleId="buildConfig.metaData"/>
+<storageModule environmentOp_0="CFLAGS=-O2 -g" environmentOp_1="CXXFLAGS=-O2 -g" moduleId="buildConfig.environment"/>
+<storageModule id="Scratchbox 1~DIABLO_X86.1255098243809" moduleId="defaultConfigurationDataProvider" name="DIABLO_X86 (Optimized)">
+<sourceEntries>
+<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="/maindialog/src"/>
+</sourceEntries>
+<folderData id="Scratchbox 1~DIABLO_X86.1255098243809.1628287187" name="" path="">
+<languageData contentTypeIds="org.eclipse.cdt.core.cxxSource;org.eclipse.cdt.core.cxxHeader" id="Scratchbox 1~DIABLO_X86.1255098243809.1628287187.348459748" languageId="org.eclipse.cdt.core.g++" name="GNU C++" supportedEntryKinds="includePath;includeFile;macro;macroFile">
+<settingEntries>
+<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/maindialog/src"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/hildon-1"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/gtk-2.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/lib/gtk-2.0/include"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/atk-1.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/cairo"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/pango-1.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/glib-2.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/lib/glib-2.0/include"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/freetype2"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/libpng12"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/local/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/compilers/cs2005q3.2-glibc2.5-i386/lib/gcc/i686-linux/3.4.4/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/compilers/cs2005q3.2-glibc2.5-i386/i686-linux/sys-include"/>
+<entry flags="" kind="macro" name="MAEMO_CHANGES" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__STDC_HOSTED__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC__" value="3"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC_MINOR__" value="4"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC_PATCHLEVEL__" value="4"/>
+<entry flags="BUILTIN" kind="macro" name="__SIZE_TYPE__" value="unsigned int"/>
+<entry flags="BUILTIN" kind="macro" name="__PTRDIFF_TYPE__" value="int"/>
+<entry flags="BUILTIN" kind="macro" name="__WCHAR_TYPE__" value="long int"/>
+<entry flags="BUILTIN" kind="macro" name="__WINT_TYPE__" value="unsigned int"/>
+<entry flags="BUILTIN" kind="macro" name="__GXX_ABI_VERSION" value="1002"/>
+<entry flags="BUILTIN" kind="macro" name="__SCHAR_MAX__" value="127"/>
+<entry flags="BUILTIN" kind="macro" name="__SHRT_MAX__" value="32767"/>
+<entry flags="BUILTIN" kind="macro" name="__INT_MAX__" value="2147483647"/>
+<entry flags="BUILTIN" kind="macro" name="__LONG_MAX__" value="2147483647L"/>
+<entry flags="BUILTIN" kind="macro" name="__LONG_LONG_MAX__" value="9223372036854775807LL"/>
+<entry flags="BUILTIN" kind="macro" name="__WCHAR_MAX__" value="2147483647"/>
+<entry flags="BUILTIN" kind="macro" name="__CHAR_BIT__" value="8"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_EVAL_METHOD__" value="2"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_RADIX__" value="2"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MANT_DIG__" value="24"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_DIG__" value="6"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN_EXP__" value="(-125)"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN_10_EXP__" value="(-37)"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX_EXP__" value="128"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX_10_EXP__" value="38"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX__" value="3.40282347e+38F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN__" value="1.17549435e-38F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_EPSILON__" value="1.19209290e-7F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_DENORM_MIN__" value="1.40129846e-45F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MANT_DIG__" value="53"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_DIG__" value="15"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN_EXP__" value="(-1021)"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN_10_EXP__" value="(-307)"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX_EXP__" value="1024"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX_10_EXP__" value="308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX__" value="1.7976931348623157e+308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN__" value="2.2250738585072014e-308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_EPSILON__" value="2.2204460492503131e-16"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_DENORM_MIN__" value="4.9406564584124654e-324"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MANT_DIG__" value="64"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_DIG__" value="18"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN_EXP__" value="(-16381)"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN_10_EXP__" value="(-4931)"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX_EXP__" value="16384"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX_10_EXP__" value="4932"/>
+<entry flags="BUILTIN" kind="macro" name="__DECIMAL_DIG__" value="21"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX__" value="1.18973149535723176502e+4932L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN__" value="3.36210314311209350626e-4932L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_EPSILON__" value="1.08420217248550443401e-19L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_DENORM_MIN__" value="3.64519953188247460253e-4951L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__REGISTER_PREFIX__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__USER_LABEL_PREFIX__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__VERSION__" value="&quot;3.4.4 (release) (CodeSourcery ARM 2005q3-2)&quot;"/>
+<entry flags="BUILTIN" kind="macro" name="__NO_INLINE__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FINITE_MATH_ONLY__" value="0"/>
+<entry flags="BUILTIN" kind="macro" name="__i386" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__i386__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="i386" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__tune_i686__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__tune_pentiumpro__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__gnu_linux__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__linux" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__linux__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="linux" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__unix" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__unix__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="unix" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__ELF__" value="1"/>
+</settingEntries>
+</languageData>
+<languageData contentTypeIds="org.eclipse.cdt.core.cSource;org.eclipse.cdt.core.cHeader" id="Scratchbox 1~DIABLO_X86.1255098243809.1628287187.408858006" languageId="org.eclipse.cdt.core.gcc" name="GNU C" supportedEntryKinds="includePath;includeFile;macro;macroFile">
+<settingEntries>
+<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/maindialog/src"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/hildon-1"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/gtk-2.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/lib/gtk-2.0/include"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/atk-1.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/cairo"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/pango-1.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/glib-2.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/lib/glib-2.0/include"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/freetype2"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/libpng12"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/local/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/compilers/cs2005q3.2-glibc2.5-i386/lib/gcc/i686-linux/3.4.4/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/compilers/cs2005q3.2-glibc2.5-i386/i686-linux/sys-include"/>
+<entry flags="" kind="macro" name="MAEMO_CHANGES" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__STDC_HOSTED__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC__" value="3"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC_MINOR__" value="4"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC_PATCHLEVEL__" value="4"/>
+<entry flags="BUILTIN" kind="macro" name="__SIZE_TYPE__" value="unsigned int"/>
+<entry flags="BUILTIN" kind="macro" name="__PTRDIFF_TYPE__" value="int"/>
+<entry flags="BUILTIN" kind="macro" name="__WCHAR_TYPE__" value="long int"/>
+<entry flags="BUILTIN" kind="macro" name="__WINT_TYPE__" value="unsigned int"/>
+<entry flags="BUILTIN" kind="macro" name="__GXX_ABI_VERSION" value="1002"/>
+<entry flags="BUILTIN" kind="macro" name="__SCHAR_MAX__" value="127"/>
+<entry flags="BUILTIN" kind="macro" name="__SHRT_MAX__" value="32767"/>
+<entry flags="BUILTIN" kind="macro" name="__INT_MAX__" value="2147483647"/>
+<entry flags="BUILTIN" kind="macro" name="__LONG_MAX__" value="2147483647L"/>
+<entry flags="BUILTIN" kind="macro" name="__LONG_LONG_MAX__" value="9223372036854775807LL"/>
+<entry flags="BUILTIN" kind="macro" name="__WCHAR_MAX__" value="2147483647"/>
+<entry flags="BUILTIN" kind="macro" name="__CHAR_BIT__" value="8"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_EVAL_METHOD__" value="2"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_RADIX__" value="2"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MANT_DIG__" value="24"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_DIG__" value="6"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN_EXP__" value="(-125)"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN_10_EXP__" value="(-37)"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX_EXP__" value="128"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX_10_EXP__" value="38"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX__" value="3.40282347e+38F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN__" value="1.17549435e-38F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_EPSILON__" value="1.19209290e-7F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_DENORM_MIN__" value="1.40129846e-45F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MANT_DIG__" value="53"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_DIG__" value="15"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN_EXP__" value="(-1021)"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN_10_EXP__" value="(-307)"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX_EXP__" value="1024"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX_10_EXP__" value="308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX__" value="1.7976931348623157e+308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN__" value="2.2250738585072014e-308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_EPSILON__" value="2.2204460492503131e-16"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_DENORM_MIN__" value="4.9406564584124654e-324"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MANT_DIG__" value="64"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_DIG__" value="18"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN_EXP__" value="(-16381)"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN_10_EXP__" value="(-4931)"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX_EXP__" value="16384"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX_10_EXP__" value="4932"/>
+<entry flags="BUILTIN" kind="macro" name="__DECIMAL_DIG__" value="21"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX__" value="1.18973149535723176502e+4932L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN__" value="3.36210314311209350626e-4932L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_EPSILON__" value="1.08420217248550443401e-19L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_DENORM_MIN__" value="3.64519953188247460253e-4951L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__REGISTER_PREFIX__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__USER_LABEL_PREFIX__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__VERSION__" value="&quot;3.4.4 (release) (CodeSourcery ARM 2005q3-2)&quot;"/>
+<entry flags="BUILTIN" kind="macro" name="__NO_INLINE__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FINITE_MATH_ONLY__" value="0"/>
+<entry flags="BUILTIN" kind="macro" name="__i386" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__i386__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="i386" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__tune_i686__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__tune_pentiumpro__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__gnu_linux__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__linux" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__linux__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="linux" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__unix" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__unix__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="unix" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__ELF__" value="1"/>
+</settingEntries>
+</languageData>
+<languageData contentTypeIds="org.eclipse.cdt.core.asmSource" id="Scratchbox 1~DIABLO_X86.1255098243809.1628287187.158617678" languageId="org.eclipse.cdt.core.assembly" name="Assembly" supportedEntryKinds="includePath;includeFile;macro;macroFile">
+<settingEntries>
+<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/maindialog/src"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/hildon-1"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/gtk-2.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/lib/gtk-2.0/include"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/atk-1.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/cairo"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/pango-1.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/glib-2.0"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/lib/glib-2.0/include"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/freetype2"/>
+<entry flags="" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include/libpng12"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/local/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/users/maemo/targets/DIABLO_X86/usr/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/compilers/cs2005q3.2-glibc2.5-i386/lib/gcc/i686-linux/3.4.4/include"/>
+<entry flags="BUILTIN" kind="includePath" name="/scratchbox/compilers/cs2005q3.2-glibc2.5-i386/i686-linux/sys-include"/>
+<entry flags="" kind="macro" name="MAEMO_CHANGES" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__STDC_HOSTED__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC__" value="3"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC_MINOR__" value="4"/>
+<entry flags="BUILTIN" kind="macro" name="__GNUC_PATCHLEVEL__" value="4"/>
+<entry flags="BUILTIN" kind="macro" name="__SIZE_TYPE__" value="unsigned int"/>
+<entry flags="BUILTIN" kind="macro" name="__PTRDIFF_TYPE__" value="int"/>
+<entry flags="BUILTIN" kind="macro" name="__WCHAR_TYPE__" value="long int"/>
+<entry flags="BUILTIN" kind="macro" name="__WINT_TYPE__" value="unsigned int"/>
+<entry flags="BUILTIN" kind="macro" name="__GXX_ABI_VERSION" value="1002"/>
+<entry flags="BUILTIN" kind="macro" name="__SCHAR_MAX__" value="127"/>
+<entry flags="BUILTIN" kind="macro" name="__SHRT_MAX__" value="32767"/>
+<entry flags="BUILTIN" kind="macro" name="__INT_MAX__" value="2147483647"/>
+<entry flags="BUILTIN" kind="macro" name="__LONG_MAX__" value="2147483647L"/>
+<entry flags="BUILTIN" kind="macro" name="__LONG_LONG_MAX__" value="9223372036854775807LL"/>
+<entry flags="BUILTIN" kind="macro" name="__WCHAR_MAX__" value="2147483647"/>
+<entry flags="BUILTIN" kind="macro" name="__CHAR_BIT__" value="8"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_EVAL_METHOD__" value="2"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_RADIX__" value="2"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MANT_DIG__" value="24"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_DIG__" value="6"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN_EXP__" value="(-125)"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN_10_EXP__" value="(-37)"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX_EXP__" value="128"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX_10_EXP__" value="38"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MAX__" value="3.40282347e+38F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_MIN__" value="1.17549435e-38F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_EPSILON__" value="1.19209290e-7F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_DENORM_MIN__" value="1.40129846e-45F"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FLT_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MANT_DIG__" value="53"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_DIG__" value="15"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN_EXP__" value="(-1021)"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN_10_EXP__" value="(-307)"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX_EXP__" value="1024"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX_10_EXP__" value="308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MAX__" value="1.7976931348623157e+308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_MIN__" value="2.2250738585072014e-308"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_EPSILON__" value="2.2204460492503131e-16"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_DENORM_MIN__" value="4.9406564584124654e-324"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__DBL_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MANT_DIG__" value="64"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_DIG__" value="18"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN_EXP__" value="(-16381)"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN_10_EXP__" value="(-4931)"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX_EXP__" value="16384"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX_10_EXP__" value="4932"/>
+<entry flags="BUILTIN" kind="macro" name="__DECIMAL_DIG__" value="21"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MAX__" value="1.18973149535723176502e+4932L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_MIN__" value="3.36210314311209350626e-4932L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_EPSILON__" value="1.08420217248550443401e-19L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_DENORM_MIN__" value="3.64519953188247460253e-4951L"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_DENORM__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_INFINITY__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__LDBL_HAS_QUIET_NAN__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__REGISTER_PREFIX__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__USER_LABEL_PREFIX__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__VERSION__" value="&quot;3.4.4 (release) (CodeSourcery ARM 2005q3-2)&quot;"/>
+<entry flags="BUILTIN" kind="macro" name="__NO_INLINE__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__FINITE_MATH_ONLY__" value="0"/>
+<entry flags="BUILTIN" kind="macro" name="__i386" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__i386__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="i386" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__tune_i686__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__tune_pentiumpro__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__gnu_linux__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__linux" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__linux__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="linux" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__unix" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__unix__" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="unix" value="1"/>
+<entry flags="BUILTIN" kind="macro" name="__ELF__" value="1"/>
+</settingEntries>
+</languageData>
+</folderData>
+<buildData errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.VCErrorParser;org.maemo.mica.cpp.project.builder.autotools.MicaAutotoolsErrorParser" id="Scratchbox 1~DIABLO_X86.1255098243809.990093044"/>
+<targetPlatformData binaryParsers="org.eclipse.cdt.core.ELF" id="Scratchbox 1~DIABLO_X86.1255098243809.529491072"/>
+</storageModule>
+<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
+<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
+<buildTargets>
+<target name="all" path="" targetID="org.maemo.mica.cpp.project.builder.make.builder">
+<buildCommand>make</buildCommand>
+<buildArguments></buildArguments>
+<buildTarget>all</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+<runAllBuilders>false</runAllBuilders>
+</target>
+</buildTargets>
+</storageModule>
+</cconfiguration>
+<cconfiguration id="Scratchbox 1~DIABLO_ARMEL.1256988591123">
+<storageModule buildSystemId="org.maemo.mica.cpp.project.core.CConfigurationDataProvider" id="Scratchbox 1~DIABLO_ARMEL.1256988591123" moduleId="org.eclipse.cdt.core.settings" name="DIABLO_ARMEL (Debug)">
+<externalSettings/>
+<extensions>
+<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.maemo.mica.cpp.project.builder.autotools.MicaAutotoolsErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+</extensions>
+</storageModule>
+<storageModule moduleId="buildConfig" sdkDisplayName="Scratchbox 1 (/scratchbox/)" sdkName="Scratchbox 1" stockConfigurationId="org.maemo.mica.cpp.project.builder.make.make.debug" targetName="DIABLO_ARMEL"/>
+<storageModule moduleId="buildConfig.metaData"/>
+<storageModule environmentOp_0="CFLAGS=-O0 -g" environmentOp_1="CXXFLAGS=-O0 -g" moduleId="buildConfig.environment"/>
+<storageModule id="Scratchbox 1~DIABLO_ARMEL.1256988591123" moduleId="defaultConfigurationDataProvider" name="DIABLO_ARMEL (Debug)">
+<sourceEntries/>
+<folderData id="Scratchbox 1~DIABLO_ARMEL.1256988591123.1624182658" name="" path="">
+<languageData contentTypeIds="org.eclipse.cdt.core.cxxSource;org.eclipse.cdt.core.cxxHeader" id="Scratchbox 1~DIABLO_ARMEL.1256988591123.1624182658.575952260" languageId="org.eclipse.cdt.core.g++" name="GNU C++" supportedEntryKinds="includePath;includeFile;macro;macroFile">
+<settingEntries/>
+</languageData>
+<languageData contentTypeIds="org.eclipse.cdt.core.cSource;org.eclipse.cdt.core.cHeader" id="Scratchbox 1~DIABLO_ARMEL.1256988591123.1624182658.2081923109" languageId="org.eclipse.cdt.core.gcc" name="GNU C" supportedEntryKinds="includePath;includeFile;macro;macroFile">
+<settingEntries/>
+</languageData>
+<languageData contentTypeIds="org.eclipse.cdt.core.asmSource" id="Scratchbox 1~DIABLO_ARMEL.1256988591123.1624182658.894386822" languageId="org.eclipse.cdt.core.assembly" name="Assembly" supportedEntryKinds="includePath;includeFile;macro;macroFile">
+<settingEntries/>
+</languageData>
+</folderData>
+<buildData errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.VCErrorParser;org.maemo.mica.cpp.project.builder.autotools.MicaAutotoolsErrorParser" id="Scratchbox 1~DIABLO_ARMEL.1256988591123.9608195"/>
+<targetPlatformData binaryParsers="org.eclipse.cdt.core.ELF" id="Scratchbox 1~DIABLO_ARMEL.1256988591123.467747352"/>
+</storageModule>
+<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+</cconfiguration>
+<cconfiguration id="Scratchbox 1~DIABLO_ARMEL.1256988591170">
+<storageModule buildSystemId="org.maemo.mica.cpp.project.core.CConfigurationDataProvider" id="Scratchbox 1~DIABLO_ARMEL.1256988591170" moduleId="org.eclipse.cdt.core.settings" name="DIABLO_ARMEL (Optimized)">
+<externalSettings/>
+<extensions>
+<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="org.maemo.mica.cpp.project.builder.autotools.MicaAutotoolsErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+</extensions>
+</storageModule>
+<storageModule moduleId="buildConfig" sdkDisplayName="Scratchbox 1 (/scratchbox/)" sdkName="Scratchbox 1" stockConfigurationId="org.maemo.mica.cpp.project.builder.make.make.optimized" targetName="DIABLO_ARMEL"/>
+<storageModule moduleId="buildConfig.metaData"/>
+<storageModule environmentOp_0="CFLAGS=-O2 -g" environmentOp_1="CXXFLAGS=-O2 -g" moduleId="buildConfig.environment"/>
+<storageModule id="Scratchbox 1~DIABLO_ARMEL.1256988591170" moduleId="defaultConfigurationDataProvider" name="DIABLO_ARMEL (Optimized)">
+<sourceEntries/>
+<folderData id="Scratchbox 1~DIABLO_ARMEL.1256988591170.71050073" name="" path="">
+<languageData contentTypeIds="org.eclipse.cdt.core.cxxSource;org.eclipse.cdt.core.cxxHeader" id="Scratchbox 1~DIABLO_ARMEL.1256988591170.71050073.1386126898" languageId="org.eclipse.cdt.core.g++" name="GNU C++" supportedEntryKinds="includePath;includeFile;macro;macroFile">
+<settingEntries/>
+</languageData>
+<languageData contentTypeIds="org.eclipse.cdt.core.cSource;org.eclipse.cdt.core.cHeader" id="Scratchbox 1~DIABLO_ARMEL.1256988591170.71050073.732622946" languageId="org.eclipse.cdt.core.gcc" name="GNU C" supportedEntryKinds="includePath;includeFile;macro;macroFile">
+<settingEntries/>
+</languageData>
+<languageData contentTypeIds="org.eclipse.cdt.core.asmSource" id="Scratchbox 1~DIABLO_ARMEL.1256988591170.71050073.1520324758" languageId="org.eclipse.cdt.core.assembly" name="Assembly" supportedEntryKinds="includePath;includeFile;macro;macroFile">
+<settingEntries/>
+</languageData>
+</folderData>
+<buildData errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.VCErrorParser;org.maemo.mica.cpp.project.builder.autotools.MicaAutotoolsErrorParser" id="Scratchbox 1~DIABLO_ARMEL.1256988591170.91304220"/>
+<targetPlatformData binaryParsers="org.eclipse.cdt.core.ELF" id="Scratchbox 1~DIABLO_ARMEL.1256988591170.2046990476"/>
+</storageModule>
+<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+</cconfiguration>
+</storageModule>
+</cproject>

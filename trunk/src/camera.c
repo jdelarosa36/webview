@@ -24,13 +24,14 @@
 #define VIDEO_SINK "ximagesink"
 #endif
 
-typedef struct
-{
+typedef struct _CAppData CAppData;
+struct _CAppData {
 	HildonWindow *window;
 	GstElement *pipeline;
 	guint buffer_cb_id;
-} AppData;
-AppData appdata;
+	gchar *image_file;
+};
+CAppData *cappdata;
 
 static gboolean buffer_probe_callback(GstElement *image_sink, GstBuffer *buffer, GstPad *pad);
 static void bus_callback(GstBus *bus, GstMessage *message);
@@ -38,7 +39,7 @@ static gboolean initialize_pipeline();
 static gboolean create_jpeg(unsigned char *buffer);
 gboolean start_camera(HildonWindow *main_window);
 void end_camera();
-void take_photo();
+void take_photo(gchar *image_file);
 
 static gboolean buffer_probe_callback(
 		GstElement *image_sink,
@@ -49,35 +50,47 @@ static gboolean buffer_probe_callback(
 
 	unsigned char *data_photo = (unsigned char *) GST_BUFFER_DATA(buffer);
 
-	if(!create_jpeg(data_photo))
+	if(!create_jpeg(data_photo)) {
 		message_name = "photo-failed";
-	else
+		hildon_banner_show_information(GTK_WIDGET(cappdata->window),
+				NULL, "Unable To Take Photo");
+	} else {
 		message_name = "photo-taken";
+	}
 
 	g_signal_handler_disconnect(G_OBJECT(image_sink),
-			appdata.buffer_cb_id);
+			cappdata->buffer_cb_id);
 
-	message = gst_message_new_application(GST_OBJECT(appdata.pipeline),
+	message = gst_message_new_application(GST_OBJECT(cappdata->pipeline),
 			gst_structure_new(message_name, NULL));
-	gst_element_post_message(appdata.pipeline, message);
+	gst_element_post_message(cappdata->pipeline, message);
 
 	return TRUE;
 }
 
-void take_photo()
+void take_photo(gchar *image_file)
 {
 
 	GstElement *image_sink;
 
-	image_sink = gst_bin_get_by_name(GST_BIN(appdata.pipeline),
+	cappdata->image_file = image_file;
+
+	if(cappdata->pipeline == NULL)
+	{
+		hildon_banner_show_information(GTK_WIDGET(cappdata->window),
+				NULL, "Unable To Take Photo");
+		return;
+	}
+
+	image_sink = gst_bin_get_by_name(GST_BIN(cappdata->pipeline),
 			"image_sink");
 
-	hildon_banner_show_information(GTK_WIDGET(appdata.window),
+	hildon_banner_show_information(GTK_WIDGET(cappdata->window),
 		NULL, "Taking Photo");
 
-	appdata.buffer_cb_id = g_signal_connect(
+	cappdata->buffer_cb_id = g_signal_connect(
 			G_OBJECT(image_sink), "handoff",
-			G_CALLBACK(buffer_probe_callback), &appdata);
+			G_CALLBACK(buffer_probe_callback), &cappdata);
 }
 
 
@@ -111,16 +124,16 @@ static void bus_callback(GstBus *bus, GstMessage *message)
 		if(!strcmp(message_name, "photo-taken"))
 		{
 			hildon_banner_show_information(
-					GTK_WIDGET(appdata.window),
-					NULL, "Photo taken");
+					GTK_WIDGET(cappdata->window),
+					NULL, "Photo Taken");
 		}
 
 		if(!strcmp(message_name, "photo-failed"))
 		{
 			hildon_banner_show_information(
-					GTK_WIDGET(appdata.window),
+					GTK_WIDGET(cappdata->window),
 					"gtk-dialog-error",
-					 "Saving photo failed");
+					 "Saving Photo Failed");
 		}
 	}
 
@@ -139,10 +152,10 @@ static gboolean initialize_pipeline()
 	pipeline = gst_pipeline_new("test-camera");
 
 	bus = gst_pipeline_get_bus(GST_PIPELINE(pipeline));
-	gst_bus_add_watch(bus, (GstBusFunc)bus_callback, &appdata);
+	gst_bus_add_watch(bus, (GstBusFunc)bus_callback, &cappdata);
 	gst_object_unref(GST_OBJECT(bus));
 
-	appdata.pipeline = pipeline;
+	cappdata->pipeline = pipeline;
 
 	camera_src = gst_element_factory_make(VIDEO_SRC, "camera_src");
 	csp_filter = gst_element_factory_make("ffmpegcolorspace", "csp_filter");
@@ -171,7 +184,6 @@ static gboolean initialize_pipeline()
 			"width", G_TYPE_INT, 640,
 			"height", G_TYPE_INT, 480,
 			NULL);
-
 
 	if(!gst_element_link_filtered(camera_src, csp_filter, caps))
 	{
@@ -205,27 +217,30 @@ static gboolean initialize_pipeline()
 
 void end_camera()
 {
-	gst_element_set_state(appdata.pipeline, GST_STATE_NULL);
-	gst_object_unref(GST_OBJECT(appdata.pipeline));
+	gst_element_set_state(cappdata->pipeline, GST_STATE_NULL);
+	gst_object_unref(GST_OBJECT(cappdata->pipeline));
 }
 
 gboolean start_camera(HildonWindow *main_window)
 {
 
-	appdata.window = main_window;
+	cappdata = g_new0(CAppData, 1);
 
+	cappdata->window = main_window;
 
+	/*
 	hildon_banner_show_information(
-			GTK_WIDGET(appdata.window),
+			GTK_WIDGET(cappdata->window),
 			NULL,
 			"Starting camera");
+	 */
 
 	if(!initialize_pipeline())
 	{
 		hildon_banner_show_information(
-				GTK_WIDGET(appdata.window),
+				GTK_WIDGET(cappdata->window),
 				"gtk-dialog-error",
-				"Failed to initialize pipeline");
+				"Failed To Initialize Pipeline");
 		return FALSE;
 	}
 
@@ -250,11 +265,8 @@ static gboolean create_jpeg(unsigned char *data)
 		directory = g_get_tmp_dir();
 	}
 
-
 	/* Create an unique file name */
-	filename = g_string_new(g_build_filename("/opt/webview/website/Picture.jpg", NULL));
-
-
+	filename = g_string_new(g_build_filename(cappdata->image_file, NULL));
 
 	/* Create a pixbuf object from the data */
 	pixbuf = gdk_pixbuf_new_from_data(data,
