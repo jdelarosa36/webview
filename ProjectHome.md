@@ -1,0 +1,1 @@
+The Nokia N800 is a small linux power device that includes a camera. This application allows the camera to serve up live images via a web page hosted on the device
